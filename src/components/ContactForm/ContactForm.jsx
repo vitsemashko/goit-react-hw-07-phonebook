@@ -23,7 +23,11 @@ const ContactForm = () => {
   const handleFormSubmit = e => {
     e.preventDefault();
     const contactsLists = [...items];
-    if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
+    if (
+      contactsLists.findIndex(
+        contact => name.toLowerCase() === contact.name.toLowerCase()
+      ) !== -1
+    ) {
       alert(`${name} is already in contacts.`);
     } else {
       dispatch(addContact({ name: name, phone: number }));
